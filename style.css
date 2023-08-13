@@ -12,6 +12,7 @@
   --surface-color: rgba(163, 55, 190, 0.192);
   --suface-color-hover: rgba(0, 0, 0, 0.199);
   --stroke-color: rgba(0, 0, 0, 0.171);
+  --highlight-color: rgb(204, 204, 204, 0.699);
 }
 
 .light {
@@ -22,6 +23,7 @@
   --surface-color: rgba(163, 55, 190, 0.192);
   --suface-color-hover: rgba(0, 0, 0, 0.199);
   --stroke-color: rgba(0, 0, 0, 0.171);
+  --highlight-color: rgba(204, 204, 204, 0.699);
 }
 
 body {
@@ -61,12 +63,10 @@ body * {
 }
 
 #switch {
- 
   position: relative;
-  width: 64px;
+  width: 65px;
 
   margin: 4px auto;
-
 }
 
 /* switch */
@@ -79,14 +79,21 @@ body * {
 
   position: absolute;
   top: 50%;
-  left:0 ;
+  left: 0;
   z-index: 1;
-  transform: translateY(-50%);
+  transform: translateY(-51%);
+
+  animation: slide-out 0.4s forwards;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
+    transition: background 0.2s;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--surface-color);
+  border-radius: 50%;
 }
 
 #switch span {
@@ -159,10 +166,29 @@ ul li a:hover {
 
 @media (min-width: 700px) {
   :root {
-    --bg-url: url(./assets/bg-desktop-light.jpg)
+    --bg-url: url(./assets/bg-desktop-light.jpg);
   }
 
   .light {
-    --bg-url: url(./assets/bg-desktop-light.jpg)
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    left: 50%;
+  }
+
+  to {
+    left: 0;
   }
 }
