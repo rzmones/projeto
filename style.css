@@ -81,14 +81,14 @@ body * {
   top: 50%;
   left: 0;
   z-index: 1;
-  transform: translateY(-51%);
+  transform: translateY(-50%);
 
   animation: slide-out 0.4s forwards;
 }
 
 .light #switch button {
   animation: slide-in 0.4s forwards;
-    transition: background 0.2s;
+  transition: background 0.2s;
 }
 
 #switch button:hover {
